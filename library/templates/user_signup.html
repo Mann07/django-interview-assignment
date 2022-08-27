@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Sign Up</title>
+</head>
+<body style="background-color:coral">
+    <form action="user_signup" method = 'POST' style="margin:auto; margin-top:100px;width:50%;padding:10px;background-color:cadetblue">
+        {% csrf_token %}
+        <h2>Name</h2>
+        <input type="text", name="user_name", style="font-size:20px">
+        <h2>ID</h2>
+        <input type="text", name="user_id", style="font-size:20px">
+        <h2>Password</h2>
+        <input type="password", name="user_password", style="font-size:20px"><br/><br/><br/>
+        <button type="submit" style="font-size:xx-large">Sign Up</button>
+    </form>
+</body>
+</html>

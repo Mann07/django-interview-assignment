@@ -12,9 +12,18 @@ def admin_redirect(request):
 def login(request):
     return render(request,'login.html')
 
-def logout(request):
-    user_login.var = None
-    return  HttpResponseRedirect('login')
+def user_signup_page(request):
+    return render(request,'user_signup.html')  
+
+def user_signup(request):
+    if request.method == 'POST':
+        user_name = request.POST['user_name']
+        user_id = request.POST['user_id']
+        user_pass = request.POST['user_password']
+
+        newuser = user(name=user_name,user_id=user_id,user_pass = user_pass)
+        newuser.save()
+        return HttpResponseRedirect('login')
 
 def user_view(request):
     try:
@@ -83,5 +92,9 @@ def return_book(request,title):
         user_name=getattr(userobj,'name')
         book_list = books.objects.filter(borrower_name = user_name).values()
         return HttpResponseRedirect(reverse('client_lib:borrowed_book'))
+
+def logout(request):
+    user_login.var = None
+    return  HttpResponseRedirect('login')
 
             
