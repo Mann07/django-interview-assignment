@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+</head>
+<body style="background-color : lightblue;">
+    <h1>Welcome to User Login</h1>
+    <form action="user_login" method="post" style="text-align :center; margin-top : 200px; font-size : 40px;">
+        {% csrf_token %}
+        User ID : <input type="text", name='userid', style="font-size:20px"><br><br>
+        Password : <input type="text", name="pass", style="font-size:20px"><br><br>
+        <input type="submit" , value="Submit", style="font-size:30px"/><br>
+    </form>
+    
+    {% for message in messages %} 
+    <h3 style="color:red;margin-left : 800px">{{message}}</h3>
+    {% endfor %}
+
+</body>
+</html> 

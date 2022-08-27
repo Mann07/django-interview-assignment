@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrowed Books</title>
+</head>
+<body style="background-color:aquamarine">
+    <div style="margin-left:40px;";>
+        <a href="user_view"><button style="font-size:50px">Home</button></a>
+    </div>
+    <div style="margin-left:40px;">
+    <h1 style="background-color:burlywood">Borrowed Books</h1>
+    {% for book in book_list%}
+    <li style="font-size:35px;">
+    <a href="return_book/{{book.title}}"><button style="font-size:20px;">Return</button></a>
+    <b>{{book.title}}</b>
+    </li>
+    {%endfor%}
+    </div>
+
+    
+</body>
+</html>
