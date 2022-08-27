@@ -90,11 +90,16 @@ def return_book(request,title):
         book.save()
         userobj = user_login.var
         user_name=getattr(userobj,'name')
-        book_list = books.objects.filter(borrower_name = user_name).values()
         return HttpResponseRedirect(reverse('client_lib:borrowed_book'))
 
 def logout(request):
     user_login.var = None
     return  HttpResponseRedirect('login')
+
+def delete_account(request):
+    if user_login.var:
+        userobj = user_login.var
+        userobj.delete()
+        return HttpResponseRedirect('login')
 
             
